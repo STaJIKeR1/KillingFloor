@@ -7,7 +7,9 @@ var() config array<SRPlayerReplicationInfo.PlayerData> PlayerDataList;
 var() config array<SRPlayerReplicationInfo.ClanData> ClanDataList;
 var array<PlayerController> PendingPlayers;
 
-
+//+++
+//
+//***
 
 function PostBeginPlay()
 {
