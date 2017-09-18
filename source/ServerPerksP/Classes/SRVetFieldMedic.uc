@@ -12,22 +12,22 @@ static function int GetPerkProgressInt( ClientPerkRepLink StatOther, out int Fin
 		FinalInt = 200;
 		break;
 	case 2:
-		FinalInt = 750;
+		FinalInt = 400;
 		break;
 	case 3:
-		FinalInt = 4000;
+		FinalInt = 800;
 		break;
 	case 4:
-		FinalInt = 12000;
+		FinalInt = 1600;
 		break;
 	case 5:
-		FinalInt = 25000;
+		FinalInt = 3200;
 		break;
 	case 6:
-		FinalInt = 100000;
+		FinalInt = 6400;
 		break;
 	default:
-		FinalInt = 100000+GetDoubleScaling(CurLevel,20000);
+		FinalInt = 6400+GetDoubleScaling(CurLevel,6400);
 	}
 	return Min(StatOther.RDamageHealedStat,FinalInt);
 }
@@ -126,7 +126,7 @@ static function float GetCostScaling(KFPlayerReplicationInfo KFPRI, class<Pickup
 static function float GetBodyArmorDamageModifier(KFPlayerReplicationInfo KFPRI)
 {
 	if ( KFPRI.ClientVeteranSkillLevel <= 5 )
-		return 1.0 - (0.10 * float(KFPRI.ClientVeteranSkillLevel)); // Up to 50% improvement of Body Armor
+		return 1.0 - (0.05 * float(KFPRI.ClientVeteranSkillLevel)); // Up to 50% improvement of Body Armor
 	return 0.25; // Level 6 - 75% Better Body Armor
 }
 
@@ -161,11 +161,11 @@ defaultproperties
      SRLevelEffects(2)="50% faster Syringe recharge|25% more potent healing|50% less damage from Bloat Bile|5% faster movement speed|40% larger Medic Gun clips|20% better Body Armor|30% discount on Body Armor|79% discount on Medic Guns|Grenades heal teammates and hurt enemies"
      SRLevelEffects(3)="75% faster Syringe recharge|50% more potent healing|50% less damage from Bloat Bile|10% faster movement speed|60% larger Medic Gun clips|30% better Body Armor|40% discount on Body Armor|81% discount on Medic Guns|Grenades heal teammates and hurt enemies"
      SRLevelEffects(4)="100% faster Syringe recharge|50% more potent healing|50% less damage from Bloat Bile|15% faster movement speed|80% larger Medic Gun clips|40% better Body Armor|50% discount on Body Armor|83% discount on Medic Guns|Grenades heal teammates and hurt enemies"
-     SRLevelEffects(5)="150% faster Syringe recharge|50% more potent healing|75% less damage from Bloat Bile|20% faster movement speed|100% larger Medic Gun clips|50% better Body Armor|60% discount on Body Armor|85% discount on Medic Guns|Grenades heal teammates and hurt enemies|Spawn with Body Armor"
-     SRLevelEffects(6)="200% faster Syringe recharge|75% more potent healing|75% less damage from Bloat Bile|25% faster movement speed|100% larger Medic Gun clips|75% better Body Armor|70% discount on Body Armor|87% discount on Medic Guns|Grenades heal teammates and hurt enemies|Spawn with Body Armor and Medic Gun"
+     SRLevelEffects(5)="150% faster Syringe recharge|50% more potent healing|75% less damage from Bloat Bile|20% faster movement speed|100% larger Medic Gun clips|50% better Body Armor|60% discount on Body Armor|85% discount on Medic Guns|Grenades heal teammates and hurt enemies"
+     SRLevelEffects(6)="200% faster Syringe recharge|75% more potent healing|75% less damage from Bloat Bile|25% faster movement speed|100% larger Medic Gun clips|75% better Body Armor|70% discount on Body Armor|87% discount on Medic Guns|Grenades heal teammates and hurt enemies"
      PerkIndex=0
      OnHUDIcon=Texture'KillingFloorHUD.Perks.Perk_Medic'
      OnHUDGoldIcon=Texture'KillingFloor2HUD.Perk_Icons.Perk_Medic_Gold'
-     VeterancyName="Field Medic"
-     Requirements(0)="Heal %x HP on your teammates"
+     VeterancyName="Полевой Медик"
+     Requirements(0)="Вылечить %x жизней вашей команде"
 }
