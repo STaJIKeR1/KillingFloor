@@ -49,7 +49,8 @@ static function int AddDamage(KFPlayerReplicationInfo KFPRI, KFMonster Injured, 
 
 static function float GetFireSpeedMod(KFPlayerReplicationInfo KFPRI, Weapon Other)
 {
-	if ( KFMeleeGun(Other) != none || Crossbuzzsaw(Other) != none )
+	//Fix fire speed for Crossbuzzsaw
+	if ( KFMeleeGun(Other) != none ) //|| Crossbuzzsaw(Other) != none
 	{
 		switch ( KFPRI.ClientVeteranSkillLevel )
 		{
